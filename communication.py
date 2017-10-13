@@ -175,4 +175,17 @@ green one whether the test was successful."""
     graph.set(xlabel='Number of trials', ylabel='Success proportion', ylim=[0,1])
     success_p = dyad.success_p(input_meaning_p)
     print(success_p)
-    graph2 = sns.tsplot((success_p,) * n_trials, color=sns.color_palette()[1])
+    sns.tsplot((success_p,) * n_trials, color=sns.color_palette()[1])
+    
+def success_p_dist(n_trials, n_meanings, n_signals, input_meaning_p = None):
+    """Plots the distribution of success probability for ProductSystems
+randomly generated with the given parameters, and with the given distribution
+over input meanings. It can be seen for example that when input_meaning_p is
+uniform, the mean is simply 1/n_meanings (entirely independent of n_signals)."""
+    if input_meaning_p is None:
+        input_meaning_p = uniform_p(n_meanings)
+    y = []
+    for i in range(n_trials):
+        dyad = ProductSystem.rand_dyad(n_meanings, n_signals)
+        y.append(dyad.success_p(input_meaning_p))
+    sns.distplot(np.asarray(y))
