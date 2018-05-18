@@ -1,4 +1,6 @@
-﻿This short script implements a simple model of communication where entities attempt to communicate meanings to each other by signalling. Each entity has the capability to map meanings to signals, when producing a signal, or signals to meanings, when receiving a signal. Communications are not always successful as the signal might be interpreted as having a different meaning from the one that the producer intended.
+See https://thehousecarpenter.wordpress.com/2017/02/14/modelling-communication-systems/ for background.
+
+This short script implements a simple model of communication where entities attempt to communicate meanings to each other by signalling. Each entity has the capability to map meanings to signals, when producing a signal, or signals to meanings, when receiving a signal. Communications are not always successful as the signal might be interpreted as having a different meaning from the one that the producer intended.
 
 The script contains classes that can be used to represent these communicating entities (System for a single entity, ProductSystem for a pair of communicating entities). Methods of these classes allow for simulating communication; see the example below.
 
